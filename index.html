@@ -1,83 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="JobNest — modern job portal to search, filter and save jobs.">
-<title>JobNest — Find your next job</title>
-<style>
-:root{--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#68738a;--brand:#315bea;--brand2:#6848e8;--line:#e7eaf0;--green:#16855b;--shadow:0 14px 40px rgba(25,35,65,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
-button,input,select{font:inherit}button{cursor:pointer}.container{width:min(1160px,92%);margin:auto}
-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-size:24px;font-weight:900;color:var(--brand);text-decoration:none}.logo span{color:var(--brand2)}
-.navlinks{display:flex;gap:20px;align-items:center}.navlinks a{color:var(--text);text-decoration:none;font-weight:650}.post{background:var(--text);color:#fff;border:0;border-radius:10px;padding:11px 16px;font-weight:750}
-.hero{padding:64px 0 34px;background:linear-gradient(135deg,#eef2ff,#f8f6ff 55%,#f5f7fb)}.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.02;margin:0 0 16px;letter-spacing:-2px}.hero p{font-size:18px;color:var(--muted);max-width:680px;margin:0 0 28px}
-.searchbox{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);padding:12px;border-radius:16px;display:grid;grid-template-columns:1.5fr 1fr 1fr auto;gap:10px}.field{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:#fff}.field input,.field select{width:100%;border:0;outline:0;padding:13px 4px;background:transparent;color:var(--text)}.searchbtn{border:0;border-radius:10px;background:var(--brand);color:#fff;padding:0 22px;font-weight:800}
-.stats{display:flex;gap:26px;margin-top:22px;color:var(--muted);font-size:14px}.stats b{color:var(--text);font-size:17px}
-.main{padding:42px 0}.layout{display:grid;grid-template-columns:250px 1fr;gap:24px}.panel,.job{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 5px 20px rgba(25,35,65,.04)}.panel{padding:20px;height:max-content}.panel h3{margin:0 0 15px}.filter-group{padding:16px 0;border-top:1px solid var(--line)}.filter-group:first-of-type{border-top:0}.filter-group label{display:block;margin:9px 0;color:var(--muted);font-size:14px}.filter-group input{margin-right:8px}
-.results-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.results-head h2{margin:0}.count{color:var(--muted)}.job{padding:20px;margin-bottom:14px;transition:.18s}.job:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.jobtop{display:flex;gap:14px;align-items:flex-start}.company-logo{width:48px;height:48px;border-radius:12px;background:#eef2ff;display:grid;place-items:center;font-weight:900;color:var(--brand);flex:none}.job h3{margin:0 0 5px;font-size:18px}.company{color:var(--muted);font-size:14px}.chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}.chip{background:#f1f4f9;border:1px solid #e5e9f1;border-radius:999px;padding:6px 9px;font-size:12px;color:#4f5b72}.salary{color:var(--green);font-weight:800;font-size:14px}.jobbottom{display:flex;justify-content:space-between;align-items:center;gap:12px}.apply{background:var(--brand);color:#fff;border:0;border-radius:9px;padding:10px 15px;font-weight:750}.save{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 12px}.empty{text-align:center;padding:45px;color:var(--muted)}
-footer{margin-top:35px;background:#121827;color:#c8cfdd;padding:34px 0}.footerrow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footerrow b{color:#fff}
-.modal{position:fixed;inset:0;background:rgba(8,14,28,.55);display:none;place-items:center;padding:20px;z-index:20}.modal.open{display:grid}.modalbox{background:#fff;border-radius:18px;padding:26px;width:min(560px,100%);max-height:90vh;overflow:auto}.close{float:right;border:0;background:#f1f3f7;border-radius:50%;width:34px;height:34px}.formgrid{display:grid;gap:12px}.formgrid input,.formgrid textarea,.formgrid select{width:100%;border:1px solid var(--line);border-radius:9px;padding:12px;outline:0}.formgrid textarea{min-height:100px;resize:vertical}.submit{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:12px;font-weight:800}
-@media(max-width:850px){.searchbox{grid-template-columns:1fr 1fr}.searchbtn{height:46px}.layout{grid-template-columns:1fr}.panel{display:none}.navlinks a{display:none}}
-@media(max-width:560px){.searchbox{grid-template-columns:1fr}.searchbtn{height:46px}.hero{padding-top:42px}.jobbottom{align-items:stretch;flex-direction:column}.apply{width:100%}}
-</style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>USAJobsPro — Find Jobs Across USA</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-<header><div class="container nav">
-<a class="logo" href="#">Job<span>Nest</span></a>
-<nav class="navlinks"><a href="#jobs">Jobs</a><a href="#about">About</a><button class="post" onclick="openPost()">Post a Job</button></nav>
+<body class="bg-gray-50 font-sans text-gray-900">
+<header class="bg-white shadow-sm sticky top-0 z-50"><div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center gap-4">
+<a href="index.html" class="text-2xl font-bold text-blue-600"><i class="fa-solid fa-briefcase"></i> USAJobsPro</a>
+<div class="flex gap-2"><a href="login.html" class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg">Login</a><button onclick="openPost()" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Post a Job</button></div>
 </div></header>
-
-<section class="hero"><div class="container">
-<h1>Find work that fits your future.</h1>
-<p>Search jobs by role, location and work type. Filter the results, save opportunities and apply directly.</p>
-<div class="searchbox">
-<div class="field">⌕ <input id="q" placeholder="Job title, keyword or company"></div>
-<div class="field">⌖ <input id="loc" placeholder="Location"></div>
-<div class="field"><select id="type"><option value="">All work types</option><option>Remote</option><option>Hybrid</option><option>On-site</option></select></div>
-<button class="searchbtn" onclick="render()">Search jobs</button>
-</div>
-<div class="stats"><span><b id="jobCount">0</b> jobs</span><span><b>Remote</b> friendly</span><span><b>24/7</b> access</span></div>
-</div></section>
-
-<main class="main" id="jobs"><div class="container layout">
-<aside class="panel"><h3>Filters</h3>
-<div class="filter-group"><strong>Work type</strong><label><input type="checkbox" value="Remote" class="f"> Remote</label><label><input type="checkbox" value="Hybrid" class="f"> Hybrid</label><label><input type="checkbox" value="On-site" class="f"> On-site</label></div>
-<div class="filter-group"><strong>Experience</strong><label><input type="checkbox" value="Entry" class="e"> Entry level</label><label><input type="checkbox" value="Mid" class="e"> Mid level</label><label><input type="checkbox" value="Senior" class="e"> Senior level</label></div>
-<div class="filter-group"><button class="save" onclick="clearFilters()">Clear filters</button></div>
-</aside>
-<section><div class="results-head"><div><h2>Latest opportunities</h2><div class="count" id="resultText"></div></div><select id="sort" onchange="render()" style="padding:9px;border:1px solid var(--line);border-radius:9px"><option value="new">Newest</option><option value="salary">Salary</option></select></div><div id="jobsList"></div></section>
-</div></main>
-
-<footer id="about"><div class="container footerrow"><div><b>JobNest</b><div>Simple job discovery for everyone.</div></div><div>Built as a GitHub Pages-ready static website.</div></div></footer>
-
-<div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closePost()">×</button><h2>Post a Job</h2><p style="color:var(--muted)">Demo form — connect a backend/database before accepting real listings.</p><form class="formgrid" onsubmit="event.preventDefault();alert('Job draft saved locally. Connect a backend to publish it.');closePost()"><input required placeholder="Job title"><input required placeholder="Company"><input placeholder="Location"><select><option>Remote</option><option>Hybrid</option><option>On-site</option></select><textarea placeholder="Job description"></textarea><button class="submit">Save Job</button></form></div></div>
-
+<section class="bg-blue-600 py-12"><div class="max-w-7xl mx-auto px-4 text-center"><h1 class="text-4xl md:text-5xl font-bold text-white mb-3">Find Your Dream Job</h1><p class="text-blue-100 mb-7">Search jobs by keyword, company, location and work type.</p>
+<div class="bg-white p-3 rounded-xl flex flex-col md:flex-row gap-3 max-w-5xl mx-auto shadow-lg"><input id="search" type="text" placeholder="Job title, keyword or company" class="flex-1 px-4 py-3 border rounded-lg outline-none"><input id="location" type="text" placeholder="Location or Remote" class="flex-1 px-4 py-3 border rounded-lg outline-none"><select id="type" class="px-4 py-3 border rounded-lg"><option value="">All types</option><option>Remote</option><option>Hybrid</option><option>On-site</option><option>Full-time</option></select><button onclick="loadJobs()" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold">Search</button></div></div></section>
+<main class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-4 gap-6">
+<aside class="bg-white p-5 rounded-xl shadow h-fit"><h3 class="font-bold mb-4">Filters</h3><label class="block mb-3"><input class="mr-2" type="checkbox" value="Remote" onchange="loadJobs()">Remote</label><label class="block mb-3"><input class="mr-2" type="checkbox" value="Full-time" onchange="loadJobs()">Full-time</label><label class="block mb-4"><input class="mr-2" type="checkbox" value="International" onchange="loadJobs()">International</label><a href="resume-ai.html" class="block bg-gray-900 text-white text-center px-4 py-3 rounded-lg">AI Resume Pro</a></aside>
+<section class="md:col-span-3"><div class="flex justify-between items-center mb-4"><div><h2 class="text-2xl font-bold">Latest Jobs</h2><p id="status" class="text-sm text-gray-500"></p></div><button onclick="loadJobs()" class="border px-3 py-2 rounded-lg">Refresh</button></div><div id="jobs" class="space-y-4"></div></section>
+</main>
+<footer class="bg-gray-900 text-gray-300 mt-10 py-8 text-center">© 2026 USAJobsPro · Job search, applications and employer listings</footer>
+<div id="postModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50"><div class="bg-white rounded-2xl p-6 w-full max-w-lg"><div class="flex justify-between"><h2 class="text-2xl font-bold">Post a Job</h2><button onclick="closePost()">✕</button></div><p class="text-sm text-gray-500 my-3">Employer posting requires a logged-in employer account.</p><div class="space-y-3"><input id="jt" class="w-full border p-3 rounded-lg" placeholder="Job title"><input id="jc" class="w-full border p-3 rounded-lg" placeholder="Company"><input id="jl" class="w-full border p-3 rounded-lg" placeholder="Location"><select id="jtype" class="w-full border p-3 rounded-lg"><option>Remote</option><option>Full-time</option><option>Hybrid</option><option>On-site</option></select><input id="jsalary" class="w-full border p-3 rounded-lg" placeholder="Salary"><textarea id="jdesc" class="w-full border p-3 rounded-lg" placeholder="Description"></textarea><button onclick="postJob()" class="w-full bg-blue-600 text-white p-3 rounded-lg font-bold">Continue to Payment / Post</button><p id="postMsg" class="text-sm text-center"></p></div></div></div>
 <script>
-const jobs=[
-{id:1,title:'Customer Support Executive',company:'SupportHub',location:'Remote',type:'Remote',exp:'Entry',salary:36000,tags:['Email & Chat','English','Full-time'],days:1},
-{id:2,title:'BPO Email & Chat Associate',company:'ConnectPro',location:'Indore, India',type:'Hybrid',exp:'Entry',salary:30000,tags:['BPO','Chat Support','Gmail'],days:2},
-{id:3,title:'Frontend Developer',company:'Nova Digital',location:'Bengaluru, India',type:'Hybrid',exp:'Mid',salary:90000,tags:['HTML','CSS','JavaScript'],days:3},
-{id:4,title:'Data Entry Specialist',company:'WorkGrid',location:'Remote',type:'Remote',exp:'Entry',salary:42000,tags:['Typing','Excel','Remote'],days:4},
-{id:5,title:'QA Analyst',company:'QualityWorks',location:'Pune, India',type:'On-site',exp:'Mid',salary:70000,tags:['QA/QC','Testing','Web'],days:5},
-{id:6,title:'Digital Marketing Manager',company:'GrowthLab',location:'Delhi, India',type:'On-site',exp:'Senior',salary:110000,tags:['SEO','Content','Marketing'],days:6},
-{id:7,title:'AI Content Specialist',company:'FutureAI',location:'Remote',type:'Remote',exp:'Mid',salary:65000,tags:['AI Tools','Content Writing','English'],days:7}
+const API_URL='https://usajobspro.onrender.com';
+const fallbackJobs=[
+{_id:'demo1',title:'AI Resume Specialist',company:'USAJobsPro Demo',location:'Remote, USA',salary:'$80k - $120k',description:'Help job seekers tailor ATS-friendly resumes.',type:'Remote',isPremium:true},
+{_id:'demo2',title:'Customer Support Specialist',company:'SupportHub',location:'Remote, USA',salary:'$45k - $65k',description:'Email and chat support for customers.',type:'Full-time',isPremium:false},
+{_id:'demo3',title:'Frontend Developer',company:'Nova Digital',location:'Austin, TX',salary:'$70k - $110k',description:'Build modern web experiences.',type:'Hybrid',isPremium:false}
 ];
-const money=n=>'₹'+n.toLocaleString('en-IN')+'/month';
-function selected(cls){return [...document.querySelectorAll('.'+cls+':checked')].map(x=>x.value)}
-function render(){
- const q=document.getElementById('q').value.toLowerCase(),loc=document.getElementById('loc').value.toLowerCase(),type=document.getElementById('type').value;
- const ft=selected('f'),fe=selected('e');
- let a=jobs.filter(j=>(!q||[j.title,j.company,...j.tags].join(' ').toLowerCase().includes(q))&&(!loc||j.location.toLowerCase().includes(loc)||j.type.toLowerCase().includes(loc))&&(!type||j.type===type)&&(!ft.length||ft.includes(j.type))&&(!fe.length||fe.includes(j.exp)));
- if(document.getElementById('sort').value==='salary')a.sort((x,y)=>y.salary-x.salary);else a.sort((x,y)=>x.days-y.days);
- document.getElementById('jobCount').textContent=jobs.length;document.getElementById('resultText').textContent=a.length+' matching jobs';
- document.getElementById('jobsList').innerHTML=a.length?a.map(j=>`<article class="job"><div class="jobtop"><div class="company-logo">${j.company[0]}</div><div style="flex:1"><h3>${j.title}</h3><div class="company">${j.company} · ${j.location}</div><div class="chips">${j.tags.map(t=>'<span class="chip">'+t+'</span>').join('')}<span class="chip">${j.type}</span></div><div class="jobbottom"><span class="salary">${money(j.salary)}</span><div><button class="save" onclick="saveJob(${j.id})">♡ Save</button> <button class="apply" onclick="applyJob('${j.title.replace(/'/g,"\\'")}')">Apply now</button></div></div></div></div></article>`).join(''):'<div class="job empty">No jobs found. Try a different keyword, location or filter.</div>';
-}
-function applyJob(t){alert('Application started for: '+t+'\n\nConnect this button to your application form or employer URL for production use.')}
-function saveJob(id){let s=JSON.parse(localStorage.getItem('savedJobs')||'[]');if(!s.includes(id))s.push(id);localStorage.setItem('savedJobs',JSON.stringify(s));alert('Job saved.')}
-function clearFilters(){document.querySelectorAll('.f,.e').forEach(x=>x.checked=false);document.getElementById('q').value='';document.getElementById('loc').value='';document.getElementById('type').value='';render()}
-function openPost(){document.getElementById('modal').classList.add('open')}function closePost(){document.getElementById('modal').classList.remove('open')}
-document.querySelectorAll('.f,.e').forEach(x=>x.addEventListener('change',render));render();
-</script>
-</body></html>
+function esc(v=''){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+async function loadJobs(){const q=document.getElementById('search').value.trim(),loc=document.getElementById('location').value.trim(),type=document.getElementById('type').value;const params=new URLSearchParams();if(q)params.set('search',q);if(loc)params.set('location',loc);if(type)params.set('type',type);document.getElementById('status').textContent='Loading...';let data=[];try{const r=await fetch(`${API_URL}/api/jobs?${params}`);if(!r.ok)throw Error();data=await r.json()}catch(e){data=fallbackJobs.filter(j=>(!q||`${j.title} ${j.company}`.toLowerCase().includes(q.toLowerCase()))&&(!loc||j.location.toLowerCase().includes(loc.toLowerCase()))&&(!type||j.type===type));document.getElementById('status').textContent='Demo jobs shown — connect the live backend to load database jobs.'}const checks=[...document.querySelectorAll('aside input:checked')].map(x=>x.value);if(checks.length)data=data.filter(j=>checks.includes(j.type)||checks.includes('International')&&/international|student/i.test(j.description||''));renderJobs(data)}
+function renderJobs(data){document.getElementById('status').textContent=document.getElementById('status').textContent||`${data.length} jobs found`;document.getElementById('jobs').innerHTML=data.length?data.map(j=>`<article class="bg-white p-5 rounded-xl shadow hover:shadow-md"><div class="flex justify-between gap-3"><div><h3 class="text-lg font-bold">${esc(j.title)}</h3><p class="text-gray-500">${esc(j.company||'Company')} · ${esc(j.location||'USA')}</p></div>${j.isPremium?'<span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full h-fit">Premium</span>':''}</div><div class="flex flex-wrap gap-2 my-3"><span class="bg-gray-100 px-3 py-1 rounded-full text-xs">${esc(j.type||'Full-time')}</span><span class="bg-gray-100 px-3 py-1 rounded-full text-xs">${esc(j.salary||'Salary disclosed by employer')}</span></div><p class="text-sm text-gray-700">${esc(j.description||'No description provided.')}</p><div class="mt-4 flex gap-2"><button onclick="applyJob('${esc(j._id)}')" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">Apply Now</button><button onclick="saveJob('${esc(j._id)}')" class="border px-4 py-2 rounded-lg text-sm">Save</button></div></article>`).join(''):'<div class="bg-white rounded-xl p-10 text-center text-gray-500">No jobs found. Try another search.</div>'}
+function applyJob(id){localStorage.setItem('applyJobId',id);location.href='login.html?apply='+encodeURIComponent(id)}function saveJob(id){let a=JSON.parse(localStorage.getItem('savedJobs')||'[]');if(!a.includes(id))a.push(id);localStorage.setItem('savedJobs',JSON.stringify(a));alert('Job saved.')}
+function openPost(){document.getElementById('postModal').classList.remove('hidden');document.getElementById('postModal').classList.add('flex')}function closePost(){document.getElementById('postModal').classList.add('hidden');document.getElementById('postModal').classList.remove('flex')}
+async function postJob(){const token=localStorage.getItem('token');if(!token){location.href='login.html?next=post';return}const body={title:jt.value,company:jc.value,location:jl.value,salary:jsalary.value,description:jdesc.value,type:jtype.value};try{const r=await fetch(`${API_URL}/api/jobs`,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`},body:JSON.stringify(body)});const d=await r.json();document.getElementById('postMsg').textContent=d.message||'Job posted';if(r.ok){closePost();loadJobs()}}catch(e){document.getElementById('postMsg').textContent='Backend unavailable. Please try again later.'}}
+loadJobs();
+</script></body></html>
